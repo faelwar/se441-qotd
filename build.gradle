@@ -7,6 +7,7 @@ buildscript {
         maven { url "http://localhost:8081/nexus/content/groups/public" }
     }
     dependencies {
+		classpath "org.grails.plugins:database-migration:2.0.0.RC4"
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0"
         classpath "org.grails.plugins:hibernate4:5.0.2"
@@ -57,6 +58,7 @@ dependencies {
     profile "org.grails.profiles:web:3.1.4"
     runtime "org.grails.plugins:asset-pipeline"
     runtime "com.h2database:h2"
+	runtime "org.grails.plugins:database-migration:2.0.0.RC4"
     testCompile "org.grails:grails-plugin-testing"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
@@ -83,6 +85,14 @@ uploadArchives {
 				snapshotRepository(url: "${nexusUrl}/content/repositories/snapshots") {
 					authentication(userName: nexusUsername, password: nexusPassword)
 				}
+		}
+	}
+}
+
+sourceSets {
+	main {
+		resources {
+			srcDir 'grails-app/migrations'
 		}
 	}
 }
