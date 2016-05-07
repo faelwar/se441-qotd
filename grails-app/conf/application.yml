@@ -25,6 +25,7 @@ environments:
                 databasemigration:
                     updateOnStart: true
                     updateOnStartFileName: [changelog.groovy]
+
     test:
         dataSource:
             dbCreate: update

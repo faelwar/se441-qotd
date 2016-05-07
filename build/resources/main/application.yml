@@ -25,6 +25,7 @@ environments:
                 databasemigration:
                     updateOnStart: true
                     updateOnStartFileName: [changelog.groovy]
+
     test:
         dataSource:
             dbCreate: update
@@ -130,4 +131,4 @@ endpoints:
    
 features:
     ShowAttributions:
-        enabled: true
+        enabled: false

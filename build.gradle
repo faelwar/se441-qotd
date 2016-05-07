@@ -7,10 +7,12 @@ buildscript {
         maven { url "http://localhost:8081/nexus/content/groups/public" }
     }
     dependencies {
+		classpath "org.grails.plugins:database-migration:2.0.0.RC4"
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.5.0"
         classpath "org.grails.plugins:hibernate4:5.0.2"
 		classpath "org.grails.plugins:database-migration:2.0.0.RC4"
+		classpath "org.sonarqube.scanner.gradle:sonarqube-gradle-plugin:2.0-rc1"
     }
 }
 
@@ -24,6 +26,7 @@ apply plugin:"org.grails.grails-web"
 apply plugin:"org.grails.grails-gsp"
 apply plugin:"asset-pipeline"
 apply plugin:"maven"
+apply plugin:"org.sonarqube"
 
 ext {
     grailsVersion = project.grailsVersion
@@ -95,6 +98,12 @@ sourceSets {
 		resources {
 			srcDir 'grails-app/migrations'
 		}
+	}
+}
+
+sonarqube {
+	properties {
+		property "sonar.sources", "grails-app"
 	}
 }
 
