@@ -102,7 +102,7 @@ sourceSets {
 }
 
 sonarqube {
-	jvmArgs += [ "-XX:MaxPermSize=256m"]
+	jvmArgs "-XX:MaxPermSize=256m"
 	properties {
 		property "sonar.sources", "grails-app"
 	}
