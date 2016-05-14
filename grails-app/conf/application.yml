@@ -24,7 +24,7 @@ environments:
             plugin:
                 databasemigration:
                     updateOnStart: true
-                    updateOnStartFileNames: [changelog.groovy]
+                    updateOnStartFileName: [changelog.groovy]
 
     test:
         dataSource:
@@ -56,7 +56,7 @@ environments:
             plugin:
                 databasemigration:
                     updateOnStart: true
-                    updateOnStartFileNames: [changelog.groovy]
+                    updateOnStartFileName: [changelog.groovy]
 
 ---
 ---
